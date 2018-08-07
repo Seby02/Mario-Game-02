@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 
 import com.seby.jeu.Main;
 import com.seby.objets.Objet;
+import com.seby.objets.Piece;
 
 public class Mario extends Personnage {
 
@@ -56,11 +57,11 @@ public class Mario extends Personnage {
 		this.compteurSaut++; // incrémentation du saut
 		
 		// Montée de mario en sautant
-		if(this.compteurSaut <= 35) { // hauteur du saut de mario
+		if(this.compteurSaut <= 40) { // hauteur du saut de mario
 			if(this.getY() > Main.panel.getHauteurPlafond()) { // si la tete de mario est supérieur de la hauteur du plafond
 				this.setY(this.getY() - 4 ); // on fait monter mario à l'écran et son ordonnée va baisser
 			}else {
-				this.compteurSaut = 36; // on bloque le compteur à 36
+				this.compteurSaut = 41; // on bloque le compteur à 41
 			}
 			if(this.isVersDroite() == true) {
 				str = "/images/marioSautDroite.png";
@@ -116,6 +117,14 @@ public class Mario extends Personnage {
 			Main.panel.setHauteurPlafond(objet.getY() + objet.getHauteur()); // le plafond devient le dessous de l'objet
 		}else if(super.chocDessus(objet) == false && this.saut == false) {
 			Main.panel.setHauteurPlafond(0); // altitude du plafond
+		}
+	}
+	
+	public boolean chocPiece (Piece piece) {
+		if(this.chocArriere(piece) == true || this.chocAvant(piece) == true || this.chocDessous(piece) == true || this.chocDessus(piece) == true) {
+			return true;
+		}else {
+			return false;
 		}
 	}
 	

@@ -21,6 +21,14 @@ public class Clavier implements KeyListener{
 			Main.panel.setxEcran(1); // déplacement du fond vers la gauche quand on appuie sur la fleche droite
 			
 		}else if(e.getKeyCode() == KeyEvent.VK_Q){ // si la touche est la fleche vers la gauche
+			
+			if(Main.panel.getxPos()== 4301){ // on est completement collé a droite
+				Main.panel.setxPos(4300);
+				Main.panel.setxFond1(-50);
+				Main.panel.setxFond2(750);
+			}
+
+			
 			Main.panel.mario.setMarche(true);
 			Main.panel.mario.setVersDroite(false);
 			Main.panel.setxEcran(-1); // déplacement du fond vers la droite quand on appuie sur la fleche gauche

@@ -112,7 +112,7 @@ public class Personnage {
 	
 
 		
-		if(this.marche == false || Main.panel.getxPos() <= 0) { // si le perso est à l'arrêt ou collé à gauche de l'écran
+		if(this.marche == false || Main.panel.getxPos() <= 0 || Main.panel.getxPos() > 4300) { // si le perso est à l'arrêt ou collé à gauche de l'écran ou collé à droite de l'écran
 			if(this.versDroite == true) {string = "/images/" + nom + "ArretDroite.png";} // si le perso est tourné a droite , afficher ArretDroite
 			else{string = "/images/" + nom + "ArretGauche.png";} // sinon afficher perso + ArretGauche
 		}else{ // sinon le perso bouge et on incrémente le compteur de pas

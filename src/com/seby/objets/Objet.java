@@ -1,5 +1,9 @@
 package com.seby.objets;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 import com.seby.jeu.Main;
 
 public class Objet {
@@ -10,6 +14,11 @@ public class Objet {
 	private int hauteur;
 	private int x; // position de l'objet
 	private int y;
+	
+	// permet d'avoir l'image directement de la superclasse (pour passer à une image générique, plus besoin de passer par une image pipe et bloc)
+	// on mets protected pour que les sous classes puissent accéder aux variables 
+	protected Image imgObjet;
+	protected ImageIcon icoObjet;
 	
 	// Constructeur
 	public Objet(int x, int y, int largeur, int hauteur) {
@@ -51,6 +60,14 @@ public class Objet {
 
 	public void setY(int y) {
 		this.y = y;
+	}
+	
+	public Image getImgObjet() {
+		return imgObjet;
+	}
+
+	public void setImgObjet(Image imgObjet) {
+		this.imgObjet = imgObjet;
 	}
 	
 	// Méthodes
